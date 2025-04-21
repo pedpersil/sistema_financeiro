@@ -48,8 +48,10 @@ elseif ($uri === '/login' && $method === 'GET') {
     $authController->logout();
 } elseif ($uri == '/alterar-senha') {
     if ($method == 'GET') {
+        require __DIR__ . '/../middleware/auth.php';
         $authController->changePasswordForm();
     } elseif ($method == 'POST') {
+        require __DIR__ . '/../middleware/auth.php';
         $authController->changePassword();
     }
 }
