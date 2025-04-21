@@ -11,7 +11,6 @@ class Category
         $this->conn = (new Database())->connect();
     }
 
-    // 🔄 Lista todas as categorias do usuário
     public function getAllByUser(int $userId): array
     {
         $stmt = $this->conn->prepare("SELECT * FROM categories WHERE user_id = :user_id ORDER BY name ASC");
@@ -19,7 +18,6 @@ class Category
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    // 🔍 Busca uma categoria específica
     public function find(int $id): ?array
     {
         $stmt = $this->conn->prepare("SELECT * FROM categories WHERE id = :id");
@@ -28,7 +26,6 @@ class Category
         return $result ?: null;
     }
 
-    // ➕ Cria uma nova categoria
     public function create(array $data): bool
     {
         $stmt = $this->conn->prepare("INSERT INTO categories (user_id, name, type) VALUES (:user_id, :name, :type)");
@@ -39,7 +36,6 @@ class Category
         ]);
     }
 
-    // ✏️ Atualiza uma categoria
     public function update(int $id, array $data): bool
     {
         $stmt = $this->conn->prepare("UPDATE categories SET name = :name, type = :type WHERE id = :id");
@@ -50,7 +46,6 @@ class Category
         ]);
     }
 
-    // ❌ Exclui uma categoria
     public function delete(int $id): bool
     {
         $stmt = $this->conn->prepare("DELETE FROM categories WHERE id = :id");
