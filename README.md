@@ -3,6 +3,8 @@
 
 Sistema web desenvolvido em PHP 8.2 com MySQL e PDO, com interface moderna e responsiva utilizando Bootstrap 5.3.3. Este sistema é voltado para o controle financeiro pessoal, permitindo gerenciar entradas, saídas, categorias de gastos, relatórios, saldo mensal e exportações.
 
+Demonstração: https://financeiro.pedrosilva.tech
+
 ## ✅ Funcionalidades
 
 - 🔐 **Autenticação**
